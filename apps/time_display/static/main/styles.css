@@ -1,0 +1,12 @@
+#container {
+	width: 100%;
+	background: cyan;
+	text-align: center;
+}
+
+
+#container p{
+	font-size: 80px;
+	width: 800px;
+	margin-left: 230px;
+}

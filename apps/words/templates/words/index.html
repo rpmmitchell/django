@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Words</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'words/words.css' %}">
+</head>
+<body>
+<div id="container">
+	<div id="left">
+		<h3>Add a new word</h3>
+		<form action="/new_word" method="post">
+		 	{% csrf_token %}
+		 	<input type="text" name="word">
+		 	Red: <input type="radio" name="color" value="red">
+		 	Green: <input type="radio" name="color" value="green">
+		 	Blue: <input type="radio" name="color" value="blue">
+		 	<input type="hidden" name="big" value="false">
+		 	<input type="checkbox" name="big" value="true"> show in BIG fonts!
+		 	<input type="submit" name="submit" value="Submit">
+	 	</form>
+ 	</div>
+ 	<div id="right">
+ 		{% for element in request.session.content %}
+	 		<ul> 
+			 	<li class = "{{ element.color }} {{ element.big }}">
+			 	{{ element.word }}{{ element.datetime}}</li>
+	 		</ul>
+	 	{% endfor %}
+ 	</div>
+ 	<form action="/clear">
+ 		<input type="submit" name="submit" value="Clear">
+ 	</form>
+</div>
+</body>
+</html>

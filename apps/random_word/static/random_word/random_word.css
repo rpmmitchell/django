@@ -1,0 +1,10 @@
+#container {
+	width: 100%;
+	background: cyan;
+	text-align: center;
+}
+
+#generate {
+	font-size: 100px;
+}
+
